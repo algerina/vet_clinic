@@ -37,7 +37,22 @@ SET species = 'pokemon'
 WHERE species is NULL;
 COMMIT;
 
+BEGIN;
+DELETE FROM animals;
+SELECT * FROM animals;
+ROLLBACK;
+SELECT * FROM animals;
 
+BEGIN;
+SAVEPOINT SP1;
 
+UPDATE animals
+SET weight_kg = weight_kg * -1;
+ROLLBACK to SP1;
+SELECT * FROM animals;
 
+UPDATE animals
+COMMIT;
+
+/* Queries */
 
