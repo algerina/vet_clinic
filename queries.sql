@@ -10,3 +10,34 @@ SELECT * from animals WHERE name != 'Gabumon';
 SELECT * from animals WHERE weight_kg >= '10.4' AND weight_kg <= '17.3';
 
 
+/* Add a column species of type string to animals table. */
+
+AlTER TABLE animals
+ADD COLUMN species char(100);
+
+
+/* Transactions */
+
+BEGIN TRANSACTION;
+UPDATE animals
+SET species = 'unspecified';
+
+SELECT * FROM animals;
+ROLLBACK;
+SELECT * FROM animals;
+
+BEGIN TRANSACTION;
+
+UPDATE animals
+SET species = 'digimon'
+WHERE name = '%mon';
+
+UPDATE animals
+SET species = 'pokemon'
+WHERE species is NULL;
+COMMIT;
+
+
+
+
+
