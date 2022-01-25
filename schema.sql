@@ -13,3 +13,14 @@ CREATE TABLE animals (
 
 AlTER TABLE animals
 ADD COLUMN species char(100);
+
+
+/* Inside a transaction update the animals table by setting the species column to unspecified */
+
+BEGIN TRANSACTION;
+UPDATE animals
+SET species = 'unspecified';
+
+SELECT * FROM animals;
+ROLLBACK;
+SELECT * FROM animals;
