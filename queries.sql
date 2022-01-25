@@ -55,4 +55,18 @@ UPDATE animals
 COMMIT;
 
 /* Queries */
+SELECT COUNT(*) FROM animals;
+
+SELECT count(*) FROM animals WHERE escape_attempts = 0;
+
+SELECT AVG(weight_kg) FROM animals;
+
+SELECT neutered, MAX(escape_attempts) FROM animals GROUP BY neutered;
+
+SELECT species, MAX(weight_kg) FROM animals GROUP BY species;
+
+SELECT species, MIN(weight_kg) FROM animals GROUP BY species;
+
+SELECT species, AVG(escape_attempts) FROM animals GROUP BY species WHERE date_of_birth BETWEEN '1990-01-01' AND '2000-12-31';
+
 
