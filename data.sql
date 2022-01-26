@@ -13,3 +13,12 @@ INSERT INTO animals (id, name, date_of_birth, escape_attempts, neutered, weight_
 INSERT INTO animals (id, name, date_of_birth, escape_attempts, neutered, weight_kg) VALUES (8, 'Angemon', '2005-06-12', '1', true, '-45.00');
 INSERT INTO animals (id, name, date_of_birth, escape_attempts, neutered, weight_kg) VALUES (9, 'Boarmon', '2005-06-07', '7', true, '20.40');
 INSERT INTO animals (id, name, date_of_birth, escape_attempts, neutered, weight_kg) VALUES (10, 'Blossom', '1998-10-13', '3', true, '17.00');
+
+/* Populate owners table */
+
+INSERT INTO owners (id, full_name, age) VALUES (1, 'Sam Smith', '34');
+INSERT INTO owners (id, full_name, age) VALUES (2, 'Jennifer Orwell', '19');
+INSERT INTO owners (id, full_name, age) VALUES (3, 'Bob', '45');
+INSERT INTO owners (id, full_name, age) VALUES (4, 'Melody Pond', '77');
+INSERT INTO owners (id, full_name, age) VALUES (5, 'Dean Winchester', '14');
+INSERT INTO owners (id, full_name, age) VALUES (6, 'Jodie Whittaker', '38');
