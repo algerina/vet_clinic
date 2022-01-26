@@ -22,3 +22,9 @@ INSERT INTO owners (id, full_name, age) VALUES (3, 'Bob', '45');
 INSERT INTO owners (id, full_name, age) VALUES (4, 'Melody Pond', '77');
 INSERT INTO owners (id, full_name, age) VALUES (5, 'Dean Winchester', '14');
 INSERT INTO owners (id, full_name, age) VALUES (6, 'Jodie Whittaker', '38');
+
+
+/* Populate species table */
+
+INSERT INTO species (id, name) VALUES (1, 'Pokemon');
+INSERT INTO species (id, name) VALUES (2, 'Digimon');
