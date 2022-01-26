@@ -14,3 +14,34 @@ CREATE TABLE animals (
 
 AlTER TABLE animals
 ADD COLUMN species char(100);
+
+/* Create owners table */
+
+CREATE TABLE owners (
+    id int NOT NULL PRIMARY KEY, 
+    full_name char(50) NOT NULL,
+    age int NOT NULL
+);
+
+/* Create species table */
+
+CREATE TABLE species (
+    id int NOT NULL PRIMARY KEY, 
+    name char(50)
+);
+
+ALTER TABLE animals
+DROP COLUMN species;
+
+ALTER TABLE animals
+ADD COLUMN species_id int; 
+
+ALTER TABLE animals
+ADD FOREIGN KEY (species_id) REFERENCES species;
+
+ALTER TABLE animals
+ADD COLUMN owner_id int; 
+
+
+ALTER TABLE animals
+ADD FOREIGN KEY (owner_id) REFERENCES owners;
