@@ -38,3 +38,27 @@ ADD species_id int REFERENCES species(id);
 
 ALTER TABLE animals
 ADD owner_id int REFERENCES owners(id);
+
+/* Create vets table */
+
+CREATE TABLE vets (
+    id int NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY, 
+    name char(50) NOT NULL,
+    age int NOT NULL,
+    date_of_graduation date
+);
+
+CREATE TABLE specializations (
+    id int NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY, 
+    vets_id int NOT NULL REFERENCES vets(id),
+    species_id int NOT NULL REFERENCES species(id)
+
+);
+
+CREATE TABLE visits (
+    id int NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY, 
+    vets_id int NOT NULL REFERENCES vets(id),
+    animals_id int NOT NULL REFERENCES animals(id),
+    data_of_visit date NOT NULL
+
+);
