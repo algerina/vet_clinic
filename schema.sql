@@ -34,7 +34,7 @@ CREATE TABLE species(
 CREATE TABLE vets (
     id int NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY, 
     name char(50) NOT NULL,
-    age int NOT NULL,
+    age int,
     date_of_graduation date
 );
 
@@ -52,3 +52,5 @@ CREATE TABLE visits(
   date_of_visit DATE,
   PRIMARY KEY(id)
 );
+
+CREATE INDEX animal_id_index ON visits(animal_id);
