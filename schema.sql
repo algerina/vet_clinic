@@ -1,17 +1,5 @@
 /* Database schema to keep the structure of entire database. */
 
-CREATE TABLE animals (
-    id int NOT NULL PRIMARY KEY, 
-    name char(50),
-    date_of_birth date,
-    escape_attempts int,
-    neutered BOOLEAN NOT NULL, 
-    weight_kg int NOT NULL
-);
-
-
-/* Add a column species of type string to animals table. */
-
 CREATE TABLE animals(
   id INT GENERATED ALWAYS AS IDENTITY,
   name VARCHAR(20),
@@ -40,15 +28,6 @@ CREATE TABLE species(
   name VARCHAR(20),
   PRIMARY KEY(id)
 );
-
-ALTER TABLE animals
-DROP COLUMN species;
-
-ALTER TABLE animals
-ADD species_id int REFERENCES species(id);
-
-ALTER TABLE animals
-ADD owner_id int REFERENCES owners(id);
 
 /* Create vets table */
 
