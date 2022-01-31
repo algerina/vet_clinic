@@ -12,22 +12,33 @@ CREATE TABLE animals (
 
 /* Add a column species of type string to animals table. */
 
-AlTER TABLE animals
-ADD COLUMN species char(100);
+CREATE TABLE animals(
+  id INT GENERATED ALWAYS AS IDENTITY,
+  name VARCHAR(20),
+  date_of_birth DATE,
+  escape_attempts INT,
+  neutered BOOLEAN,
+  weight_kg DECIMAL,
+  species_id INT REFERENCES species(id),
+  owner_id INT REFERENCES owners(id),
+  PRIMARY KEY(id)
+);
 
 /* Create owners table */
 
-CREATE TABLE owners (
-    id int NOT NULL PRIMARY KEY, 
-    full_name char(50) NOT NULL,
-    age int NOT NULL
+CREATE TABLE owners(
+  id INT GENERATED ALWAYS AS IDENTITY,
+  full_name VARCHAR(20),
+  age INT,
+  PRIMARY KEY(id)
 );
 
 /* Create species table */
 
-CREATE TABLE species (
-    id int NOT NULL PRIMARY KEY, 
-    name char(50)
+CREATE TABLE species(
+  id INT GENERATED ALWAYS AS IDENTITY,
+  name VARCHAR(20),
+  PRIMARY KEY(id)
 );
 
 ALTER TABLE animals
@@ -55,10 +66,10 @@ CREATE TABLE specializations (
 
 );
 
-CREATE TABLE visits (
-    id int NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY, 
-    vets_id int NOT NULL REFERENCES vets(id),
-    animals_id int NOT NULL REFERENCES animals(id),
-    data_of_visit date NOT NULL
-
+CREATE TABLE visits(
+  id INT GENERATED ALWAYS AS IDENTITY,
+  animal_id INT REFERENCES animals(id),
+  vet_id INT REFERENCES vets(id),
+  date_of_visit DATE,
+  PRIMARY KEY(id)
 );
