@@ -32,14 +32,14 @@ CREATE TABLE species(
 /* Create vets table */
 
 CREATE TABLE vets (
-    id int NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY, 
+    id int NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     name char(50) NOT NULL,
     age int,
     date_of_graduation date
 );
 
 CREATE TABLE specializations (
-    id int NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY, 
+    id int NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     vets_id int NOT NULL REFERENCES vets(id),
     species_id int NOT NULL REFERENCES species(id)
 
@@ -54,3 +54,4 @@ CREATE TABLE visits(
 );
 
 CREATE INDEX animal_id_index ON visits(animal_id);
+CREATE INDEX vet_index on visits(vet_id);
